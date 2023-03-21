@@ -5,7 +5,7 @@
  * Return: Always 0.
  */
 	void print_alphabet(void)
-
+/* this is alphabet function*/
 {
 		char letter;
 
