@@ -5,7 +5,7 @@ carrie@ubuntu:/debugging$ cat main.h
 #include <stdio.h>
 
 void positive_or_negative(int i);
-largest = largest_number(a, b, c);
+int largest_number(int a, int b, int c);
 
 #endif /* MAIN_H */
 carrie@ubuntu:/debugging$i 
