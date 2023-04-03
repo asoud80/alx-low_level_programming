@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _memset - ironnou
  * @s: pointer to char params
@@ -9,7 +10,7 @@
 
 char *_memset(char *s, char b, unsigned int n)
 {
-unsigned int n;
+	unsigned int n;
 
 	for (i = 0; i < n; i++)
 	{
