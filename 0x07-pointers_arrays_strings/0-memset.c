@@ -11,9 +11,9 @@
 void simple_print_buffer(char *buffer, unsigned int size)
 {
 	unsigned int alx;
-		for (alx=0; n>0; alx++; n--)
+		for (alx = 0; n > 0; alx++; n--)
 		{
-			s(alx)=b;
+			s(alx) = b;
 		}
 return 0;
 }
