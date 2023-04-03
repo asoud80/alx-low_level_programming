@@ -15,5 +15,5 @@ void simple_print_buffer(char *buffer, unsigned int size)
 		{
 			s(alx) = b;
 		}
-return 0;
+return (0);
 }
