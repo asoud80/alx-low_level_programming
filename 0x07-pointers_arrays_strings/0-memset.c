@@ -1,20 +1,20 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * _memset -fill memory with constant values
+ * _memset - ironnou
  * @s: pointer to char params
- * @b: constant byte
- * @n: byte of mem area
+ * @b: data to change
+ * @n: index
  * Return: *s
  */
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int alx;
+	unsigned int i;
 
-	for (alx = 0; alx < n; alx++)
+	for (i = 0; i < n; i++)
 	{
-	s[alx] = b;
+		s[i] = b;
 	}
 	return (s);
 }
