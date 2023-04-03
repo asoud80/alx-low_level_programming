@@ -1,19 +1,20 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to print
- *
- * Return: Nothing.
+ * _memset -fill memory with constant values
+ * @s: pointer to char params
+ * @b: constant byte
+ * @n: byte of mem area
+ * Return: *s
  */
-void simple_print_buffer(char *buffer, unsigned int size)
+
+char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int alx;
-		for (alx = 0; n > 0; alx++; n--)
-		{
-			s(alx) = b;
-		}
-return (0);
+
+	for (alx = 0; alx < n; alx++)
+	{
+	s[alx] = b;
+	}
+	return (s);
 }
