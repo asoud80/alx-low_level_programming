@@ -1,8 +1,12 @@
 #include "main.h"
 /**
- * compares two strings and returns 1
- *if the strings can be considered identical
- * otherwise return 0
+ * wildcmp - Compares two strings
+ *
+ * @s1 : char
+ *
+ * @s2 : char
+ *
+ * Return: the integer length
  */
 int wildcmp(char *s1, char *s2)
 {
