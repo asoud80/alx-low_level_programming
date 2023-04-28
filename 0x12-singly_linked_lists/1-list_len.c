@@ -1,11 +1,12 @@
 #include "lists.h"
+
 /**
- * list_len - function that returns the number of elements in a linked list_t
- *            list.
+ * list_len - functopn that returns the number of elements in a linked list_t
+ * list.
  *
- * @h: This is the sigle list
+ * @h: the single list
  *
- * Return: The number of elements in a linked list_t list
+ * retrun the number of elements in a single list
  */
 size_t list_len(const list_t *h)
 {
