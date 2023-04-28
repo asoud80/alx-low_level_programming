@@ -5,42 +5,46 @@
  * @str: constant string 
  * @Return: the length of string
  */
-
-list_t *add_node(list_t **head, const char *str)
+int len(const char *str)
 {
-	char *dup;
-	int len;
-	list_t *new, *last;
+	int count;
 
-	new = malloc(sizeof(list_t));
-	if (new == NULL)
-		return (NULL);
-
-	dup = strdup(str);
 	if (str == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-
-	for (len = 0; str[len];)
-		len++;
-
-	new->str = dup;
-	new->len = len;
-	new->next = NULL;
-
-	if (*head == NULL)
-		*head = new;
-
-	else
-	{
-		last = *head;
-		while (last->next != NULL)
-			last = last->next;
-		last->next = new;
-	}
-
-	return (*head);
+		return (0);
+	for (count = 0; str[count] != '\0'; count++)
+		;
+	return (count);
 }
 
+/**
+ * add_node_end - Function that adds a new node at the end of a list_t list.
+ *
+ * @head: This is the input linked list
+ * @str: This is the string take in my linked list.
+ *
+ * Return: the address of the new element, or NULL if it failed.
+ */
+
+list_t *add_node_end(list_t **head, const char *str)
+{
+	list_t *new_node = (list_t *) malloc(sizeof(list_t));
+	list_t *last = *head;
+
+	if (new_node == NULL || str == NULL)
+	{
+		free(new_node);
+		return NULL;
+	}
+	new_node->str = strdup(str);
+	new_node->len = len(str);
+	new_node->next = NULL;
+	if (*head == NULL)
+	{
+		*head = new_node;
+		return (*head);
+	}
+	while (last->next != NULL)
+		last = last->next;
+	last->next = new_node;
+	return (*head);
+}
