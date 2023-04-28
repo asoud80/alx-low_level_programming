@@ -1,10 +1,11 @@
 #include "lists.h"
 
 /**
- * len - calculates the length of string
- * @str: constant string
- * @Return: the length of string
+ * len - Calculates the length of a string.
+ * @str: Constant string
+ * Return: The length of the string
  */
+
 int len(const char *str)
 {
 	int count;
@@ -14,11 +15,10 @@ int len(const char *str)
 	for (count = 0; str[count] != '\0'; count++)
 		;
 	return (count);
-	return (count);
 }
 
 /**
- * add_note_end - Function that adds a new node at the end of a list_t list.
+ * add_node_end - Function that adds a new node at the end of a list_t list.
  *
  * @head: This is the input linked list
  * @str: This is the string take in my linked list.
@@ -34,7 +34,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (new_node == NULL || str == NULL)
 	{
 		free(new_node);
-		return (NULL);
+		return NULL;
 	}
 	new_node->str = strdup(str);
 	new_node->len = len(str);
@@ -46,6 +46,6 @@ list_t *add_node_end(list_t **head, const char *str)
 	}
 	while (last->next != NULL)
 		last = last->next;
-		last->next = new_node;
+	last->next = new_node;
 	return (*head);
 }
