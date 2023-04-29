@@ -1,3 +1,4 @@
+#include "lists.h"
 /**
  * free_list - frees a list_t list
  * @head: A pointer to the head node of the list
@@ -6,9 +7,6 @@
  *
  * Return nothing
  */
-
-#include "lists.h"
-
 void free_list(list_t *head)
 {
 	list_t *current;
