@@ -9,10 +9,13 @@
  * Return nothing
  */
 void free_list(list_t *head)
+	#include "lists.h"
+
+void free_list(list_t *head)
 {
 	list_t *current;
 
-	while (head)
+	while (head != NULL)
 	{
 		current = head;
 		head = head->next;
