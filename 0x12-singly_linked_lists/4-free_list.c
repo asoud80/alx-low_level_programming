@@ -7,21 +7,20 @@
  * Return: Nothing.
  */
 
-#include "main.h"
+#include "lists.h"
 void free_list(list_t *head)
 {
-
 	if (head == NULL)
 	{
 		return;
 	}
 	while (head != NULL)
 	{
-		list_t *tmp;
+		list_t *temp;
 
-		tmp = head;
-		free(tmp->str);
-		free(tmp);
+		temp = head;
+		free(temp->str);
+		free(temp);
 		head = head->next;
 	}
 }
