@@ -10,13 +10,13 @@
 #include "main.h"
 void free_list(list_t *head)
 {
-	list_t *current;
+	list_t *tmp;
 
-	while (head != NULL)
+	while (head)
 	{
-		current = head;
-		head = head->next;
-		free(current->str);
-		free(current);
+		tmp = head->next;
+		free(head->str);
+		free(head);
+		head = tmp;
 	}
 }
