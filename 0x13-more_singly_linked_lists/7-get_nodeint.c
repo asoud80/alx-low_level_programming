@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stlib.h>
 
 /**
  * get_nodeint_at_index - Function returns to nth of node
