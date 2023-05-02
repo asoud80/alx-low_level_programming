@@ -6,11 +6,10 @@
  *
  * Return: the address of the node where the loop starts.
  */
-listint_t *find_listint_loop(listint-t *head)
+listint_t *find_listint_loop(listint_t *head)
 {
-{
-	listint-t *p2;
-	listint-t *prev;
+	listint_t *p2;
+	listint_t *prev;
 
 	p2 = head;
 	prev = head;
