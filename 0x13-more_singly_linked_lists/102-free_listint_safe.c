@@ -24,7 +24,7 @@ void free_listp2(listp_t **head)
 }
 
 /**
- * free_listint_safe - frees a linked list.
+ * free_listint-safe - frees a linked list.
  * @h: head of a list.
  *
  * Return: size of the list that was freed.
@@ -67,6 +67,6 @@ size_t free_listint_safe(listint_t **h)
 	}
 
 	*h = NULL;
-	free_listp2(&hptr);
+	free_listp2($hptr);
 	return (nnodes);
 }
