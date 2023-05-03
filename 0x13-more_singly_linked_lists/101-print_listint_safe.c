@@ -1,12 +1,14 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - prints a listint_t linked list
- *
- * @head: listint_t head
- *
- * Return: size_t
- */
+* print_listint_safe - Prints a listint_t linked list
+*
+* @head: listint_t head
+*
+* Return: size_t
+*/
+
+
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count1 = 0, count2;
@@ -28,12 +30,12 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (temp == next_node)
 			{
-				printf(" ->[%p] %d\n", (void *)temp, temp->n);
+				printf("-> [%p] %d\n", (void *)temp, temp->n);
 				return (count1);
 			}
 
 			next_node = next_node->next;
-			count2;
+			count2++;
 		}
 	}
 	return (count1);
