@@ -1,13 +1,10 @@
 #include "lists.h"
-
 /**
-* free_listint_safe - Frees a listint_t list
-*
-* @h: listint_t double pointer
-*
-* Return: size_t
-*/
-
+ * free_listp2 - frees a linked list
+ * @head: head of a list.
+ *
+ * Return: no return.
+ */
 size_t free_listint_safe(listint_t **h)
 {
 	size_t count = 0;
