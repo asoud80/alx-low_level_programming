@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * grt_bit - gets the bit at the index
+ * get_bit - gets the bit at the index
  * @n: the number at index
  *
  * Return: the bit state or -1 on error
