@@ -4,6 +4,7 @@
  * get_bit - gets the bit at the index
  * @n: the number at index
  *
+ * @index: the bit to get
  * Return: the bit state or -1 on error
  */
 
