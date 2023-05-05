@@ -2,7 +2,7 @@
 #define __MAIN_H__
 
 #include <stdio.h>
-#include <srdlib.H>
+#include <stdlib.H>
 
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
