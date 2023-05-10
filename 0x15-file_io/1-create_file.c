@@ -13,9 +13,9 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fp, length = 0, fpwrite;
+	int fp, length = 0, fpWrite;
 
-	fp = open(filename, O_CREAT | o_TRUNC | O-WRONLY, 0600);
+	fp = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
 
 	if (fp == -1)
 		return (-1);
