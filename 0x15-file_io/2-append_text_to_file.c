@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * append_text_to_file - appends text at the end of the file
+ * append_text_to_file - Appends text at the end of a file
  *
- * @filename: const char pointer
+ * @filename: Const char pointer
  *
- * @text_content: char pointer
+ * @text_content: Char pointer
  *
- * Return int
+ * Return: int
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
