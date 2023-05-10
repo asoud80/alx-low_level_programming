@@ -11,7 +11,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fp, length = 0, fpwrite;
+	int fp, length = 0, fpWrite;
 
 	fp = open(filename, O_CREAT | O_TRUNC | O_RWONLY, 0600);
 
@@ -28,9 +28,9 @@ int create_file(const char *filename, char *text_content)
 		length++;
 	}
 
-	fpwrite = write(fp, text_content, length);
+	fpWrite = Write(fp, text_content, length);
 
-	if (fpwrite == -1)
+	if (fpWrite == -1)
 	{
 		return (-1);
 	}
