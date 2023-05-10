@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * -append_text_to_file - appends text at the end of the file
+ * append_text_to_file - appends text at the end of the file
  *
  * @filename: const char pointer
  *
