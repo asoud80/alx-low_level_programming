@@ -1,19 +1,19 @@
 #include "main.h"
 
 /**
- * create_file - creates a new file
- * _strlen: returns the length of a string
- * @filename: param description
+ * create_file - Creates a new file
  *
- * @text_content: param decription
+ * @filename: Param description
+ *
+ * @text_content: Param description
  *
  * Return: int
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fp, length = 0, fpwrite;
+	int fp, length = 0, fpWrite;
 
-	fp = open(filename, O_CREAT | O_TRUNC | O_RWONLY, 0600);
+	fp = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
 
 	if (fp == -1)
 		return (-1);
@@ -28,9 +28,9 @@ int create_file(const char *filename, char *text_content)
 		length++;
 	}
 
-	fpwrite = write(fp, text_content, length);
+	fpWrite = write(fp, text_content, length);
 
-	if (fpwrite == -1)
+	if (fpWrite == -1)
 	{
 		return (-1);
 	}
