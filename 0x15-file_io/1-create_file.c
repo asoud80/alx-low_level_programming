@@ -1,8 +1,8 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * create_file - Creates a new file
- *
+ * _strlen: returns the length of a string
  * @filename: Param description
  *
  * @text_content: Param description
