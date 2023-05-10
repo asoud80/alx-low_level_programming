@@ -45,6 +45,7 @@ int main(int argc, char **argv)
 		}
 	if (close(file_from) == -1)
 		dprintf(STDERR_FILENO, "Error: can't close file from %d\n", file_from), exit(100);
+
 	if (close(file_to) == -1)
 		dprintf(STDERR_FILENO, "Error: can't close file_to %d\n", file_to), exit(100);
 	return (0);
