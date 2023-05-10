@@ -1,42 +1,35 @@
 #include "main.h"
 
- /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
- *
- * @Return: intger lenghth of the string
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	if (!s)
-		return (0);
-
-	while (*s++)
-		i++;
-	return (i);
-}
-
 /**
- * create_file - creates a file
- * @filename: name of file to create
- * @text_content: text to write
+ * create_file - creates a new file
  *
- * Return: 1 if success, 0 if fails
+ * @filename: param dsecription
+ *
+ * @text_content: param description
+ *
+ * Return int
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t bytes = 0, len = _strlen(text_content);
+	int fd, length = 0, fdwrite;
+	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
 
-	if (!filename)
+	if (fd == 1)
 		return (-1);
-	fd = open(filename, O_RDONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (fd == -1)
+
+	if (text_content == NULL)
+	{
+		text_content ="";
+	}
+	while (text_content[length] != '\0')
+	{
+		length++;
+	}
+	fdwrite = write(fd, text_content, length);
+	if (fdwrite == -1)
+	{
 		return (-1);
-	if (len)
-		bytes = write(fd, text_content, len);
+	}
 	close(fd);
-	return (bytes == len ? 1 : -1);
+	return (1);
 }
