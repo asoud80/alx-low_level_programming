@@ -1,35 +1,39 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * create_file - creates a new file
+ * create_file - Creates a new file
  *
- * @filename: param dsecription
+ * @filename: Param description
  *
- * @text_content: param description
+ * @text_content: Param description
  *
- * Return int
+ * Return: int
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, length = 0, fdwrite;
-	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
+	int fp, length = 0, fpWrite;
 
-	if (fd == 1)
+	fp = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
+
+	if (fp == -1)
 		return (-1);
 
 	if (text_content == NULL)
 	{
-		text_content ="";
+		text_content = "";
 	}
+
 	while (text_content[length] != '\0')
 	{
 		length++;
 	}
-	fdwrite = write(fd, text_content, length);
-	if (fdwrite == -1)
+
+	fpWrite = write(fp, text_content, length);
+
+	if (fpWrite == -1)
 	{
 		return (-1);
 	}
-	close(fd);
+	close(fp);
 	return (1);
 }
