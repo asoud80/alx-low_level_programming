@@ -2,22 +2,22 @@
 #include "main.h"
 
 /**
- * create_file - creates a new file
+ * create_file -- a new file will be created
  *
- * @filename: Param description
- * @filename: param description
+ * @filename : Description of paramaters.
+ * @filename : Description of paramaters.
  *
- * @text_content: param description
+ * @text_content : Ddescription of paramaters.
  *
- * Return: int
+ * Return :  int
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fp, length = 0, fpWrite;
+	int fb, length = 0, fbWrite;
 
-	fp = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
+	fb = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0600);
 
-	if (fp == -1)
+	if (fb == -1)
 		return (-1);
 
 	if (text_content == NULL)
@@ -30,12 +30,12 @@ int create_file(const char *filename, char *text_content)
 		length++;
 	}
 
-	fpWrite = write(fp, text_content, length);
+	fbWrite = write(fb, text_content, length);
 
-	if (fpWrite == -1)
+	if (fbWrite == -1)
 	{
 		return (-1);
 	}
-	close(fp);
+	close(fb);
 	return (1);
 }
