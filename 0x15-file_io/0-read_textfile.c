@@ -2,7 +2,7 @@
 
 /**
  * read_textfile -- read all texts from a file and print all of it
- * @filename: read all file's name 
+ * @filename: read all file's name
  * @letters: read all number of bytes.
  *
  * Return: print all number of bytes
