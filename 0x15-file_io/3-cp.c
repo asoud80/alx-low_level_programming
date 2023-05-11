@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * main - Copies content of file to another
  * @argc: int
