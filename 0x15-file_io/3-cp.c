@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * main - Copies content of file to another
+ * main - copies content of file to another
  *
  * @argc: int
  *
  * @argv: double pointer
  *
- * Return: Copy of file
+ * Return: copy of file
  */
 
 int main(int argc, char **argv)
@@ -25,30 +25,30 @@ int main(int argc, char **argv)
 	}
 	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+		dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]), exit(99);
 	while ((filecheck = read(fd, buffer, 1024)) > 0)
 	{
 		if (filecheck == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 			exit(98);
 		}
 		filecheck = write(fd2, buffer, filecheck);
 		if (filecheck == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
 	if (filecheck == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	if (close(fd) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd), exit(100);
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd), exit(100);
 	if (close(fd2) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2), exit(100);
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd2), exit(100);
 
 	return (0);
 }
