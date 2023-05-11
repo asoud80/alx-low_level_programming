@@ -1,22 +1,21 @@
 #include "main.h"
-#include "stdlib.h"
 /**
  * main - Copies content of file to another
- *
  * @argc: int
- *
  * @argv: double pointer
  *
  * Return: Copy of file
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int file_from, file_to;
 	int num1 = 1024, num2 = 0;
 	char buf[1024];
 
 	if (argc != 3)
+	{
 		dprintf(STDERR_FILENO, "usage: cp file_from file_to\n"), exit(97);
+	}
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 	{
@@ -40,14 +39,12 @@ int main(int argc, char **argv)
 		}
 		num2 = write(file_to, buf, num1);
 		if (num2 < num1)
-		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]), exit(99);
-		}
-	if (close(file_from) == -1)
-		dprintf(STDERR_FILENO, "Error: can't close file from %d\n", file_from), exit(100);
-
-	if (close(file_to) == -1)
-		dprintf(STDERR_FILENO, "Error: can't close file_to %d\n", file_to), exit(100);
-	return (0);
 	}
+	if (close(file_from) == -1)
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_from), exit(100);
+	if (close(file_to) == -1)
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_to), exit(100);
+	return (0);
 }
+
