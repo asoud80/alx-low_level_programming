@@ -3,7 +3,6 @@
 #include "main.h"
 
 /**
- *
  * binary_to_uint - it Converts the Binary Num To Uunsigned Integer.
  *
  * @b: Character String.
