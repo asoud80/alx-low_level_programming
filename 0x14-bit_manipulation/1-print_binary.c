@@ -20,7 +20,7 @@ void print_binary(unsigned long int n)
 	for (tmp = n, shft = 0; (tmp >>= 1) > 0; shft++)
 		;
 
-	for (; shft >= 0; shft --)
+	for (; shft >= 0; shft--)
 	{
 		if ((n >> shft) & 1)
 			printf("1");
