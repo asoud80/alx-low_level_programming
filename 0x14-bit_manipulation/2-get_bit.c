@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * get_bit – to Get  Value Of Bit in Given Indx
+ * get_bit - Get Value Of Bit in Given Indx
  *
  * @n: Num To be Evaluated
  *
