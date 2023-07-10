@@ -297,7 +297,7 @@ void close_elf(int elf)
  * @argv: array Of Pointers To Argums
  * Return: for  success 0.
  * Description: Exit code 98,in case of File Isn't ELF file
- *              Or Function Failed 
+ *              Or Function Failed
  */
 
 int main(int __attribute__((__unused__)) argc, char *argv[])
