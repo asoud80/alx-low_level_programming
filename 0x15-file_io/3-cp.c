@@ -74,9 +74,9 @@ int main(int argc, char *argv[])
 	}
 
 	buff = create_buffer(argv[2]);
+	from = open(argv[1], O_RDONLY);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	r = read(from, buff, 1024);
-	from = open(argv[1], O_RDONLY);
 	do {
 		if (from == -1 || r == -1)
 		{
