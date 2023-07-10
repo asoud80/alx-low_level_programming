@@ -1,63 +1,71 @@
-#include "main.h"
 #include <stdio.h>
+
+#include "main.h"
+
 #include <stdlib.h>
 
 char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- *create_buffer - Allocates 1024 bytes for a buffer.
- *@file: The name of the file buffer is storing chars for.
+ *create_buffer - allocate 1024 Bytes into BUFFER
  *
- *Return: A pointer to the newly-allocated buffer.
+ *@file: Sorting Charcater for The Name Of a File's Buffer
+ *Return: Pointer for New Allocat Buffer
  */
+
 char *create_buffer(char *file)
 {
-	char *buffer;
+	char *buff;
 
-	buffer = malloc(sizeof(char) * 1024);
+	buff = malloc(sizeof(char) * 1024);
 
-	if (buffer == NULL)
+	if (buff == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		dprintf(STDERR_FILENO, "error: not able to Write To %s\n", file);
 		exit(99);
 	}
 
-	return (buffer);
+	return (buff);
 }
 /**
- * close_file - Closes file descriptors.
- * @fd: The file descriptor to be closed.
+ * close_file - File Ddescriptor to be Closed
+ *
+ * @fd: Close File Descriptor
  */
+
 void close_file(int fd)
 {
-	int c;
+	int p;
 
-	c = close(fd);
+	p = close(fd);
 
-	if (c == -1)
+	if (p == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "error: not able to Close fd %d\n", fd);
 		exit(100);
 	}
 }
 
 /**
- * main - Copies the contents of a file to another file.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * main - Contents Of File to be Copied into Another File
  *
- * Return: 0 on success.
+ * @argc: NUMs Of Argus will be Supplied into a Program
  *
- * Description: If the argument count is incorrect - exit code 97.
- *              If file_from does not exist or cannot be read - exit code 98.
- *              If file_to cannot be created or written to - exit code 99.
- *              If file_to or file_from cannot be closed - exit code 100.
+ * @argv: Arrays Of Pointer into Argus.
+ *
+ * Return: in case of sucess reurn 0
+ *
+ * Description: Exit code 97, in case of Argument Count not correct
+ *              Exit code 98, in case file_from Not Exist Or cannot be Readed
+ *              Exit code 99, in case of file_to Cannot be Created Or Written
+ *              Exit code 100, in case of file_to Or file_from Cannot Be Closed
  */
+
 int main(int argc, char *argv[])
 {
-	int from, to, r, w;
-	char *buffer;
+	int w, from, r, to;
+	char *buff;
 
 	if (argc != 3)
 	{
@@ -65,33 +73,32 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buffer = create_buffer(argv[2]);
-	from = open(argv[1], O_RDONLY);
-	r = read(from, buffer, 1024);
+	buff = create_buffer(argv[2]);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
+	r = read(from, buff, 1024);
+	from = open(argv[1], O_RDONLY);
 	do {
 		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
+			free(buff);
 			exit(98);
 		}
 
-		w = write(to, buffer, r);
+		w = write(to, buff, r);
 		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			free(buffer);
+			free(buff);
 			exit(99);
 		}
 
-		r = read(from, buffer, 1024);
+		r = read(from, buff, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
-	free(buffer);
+	free(buff);
 	close_file(from);
 	close_file(to);
 
