@@ -2,18 +2,17 @@
 #include <stdio.h>
 #include "main.h"
 
-void cls_fle(int fed);
-char *crt_buff(char *fle);
-
+void close_file(int fd);
+char *create_buffer(char *file);
 
 /**
- *crt_buff - 1024 Bytes to be allocated into the Buffer
+ * create_buffer - 1024 Bytes to be allocated into the Buffer
  *
- *@fle: Sorting the characters of name Of a File's Buffer
+ *@file: Sorting the characters of name Of a File's Buffer
  *Return: Pointer To a Newly Buffer that will be Allocated
  */
 
-char *crt_buff(char *fle)
+char *create_buffer(char *file)
 {
 	char *buff;
 
@@ -21,7 +20,7 @@ char *crt_buff(char *fle)
 
 	if (buff == NULL)
 	{
-		dprintf(STDERR_FILENO, "error: it Cannot Write into %s\n", fle);
+		dprintf(STDERR_FILENO, "error: it Cannot Write into %s\n", file);
 		exit(99);
 	}
 
@@ -29,20 +28,20 @@ char *crt_buff(char *fle)
 }
 
 /**
- * cls_fle - File Descriptor will be closed
+ * close_file - File Descriptor will be closed
  *
- * @fed: Close File Descriptor.
+ * @fd: Close File Descriptor.
  */
 
-void cls_fle(int fed)
+void close_file(int fd)
 {
 	int d;
 
-	d = close(fed);
+	d = close(fd);
 
 	if (d == -1)
 	{
-		dprintf(STDERR_FILENO, "error: Cannot close fed %d\n", fed);
+		dprintf(STDERR_FILENO, "error: Cannot close fed %d\n", fd);
 		exit(100);
 	}
 }
@@ -66,7 +65,7 @@ void cls_fle(int fed)
 
 int main(int argc, char *argv[])
 {
-	int r, w, f, t;
+	int r, w, from, to;
 	char *buff;
 
 	if (argc != 3)
@@ -75,35 +74,35 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buff = crt_buff(argv[2]);
-	f = open(argv[1], O_RDONLY);
-	r = read(f, buff, 1024);
-	t = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	buff = create_buffer(argv[2]);
+	from = open(argv[1], O_RDONLY);
+	r = read(from, buff, 1024);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (f == -1 || r == -1)
+		if (from == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO, "error: Cannot Read From a File %s\n", argv[1]);
 			free(buff);
 			exit(98);
 		}
 
-		w = write(t, buff, r);
-		if (t == -1 || w == -1)
+		w = write(to, buff, r);
+		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO, "error: Cannot Write t %s\n", argv[2]);
 			free(buff);
 			exit(99);
 		}
 
-		r = read(f, buff, 1024);
-		t = open(argv[2], O_WRONLY | O_APPEND);
+		r = read(from, buff, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
 	free(buff);
-	cls_fle(f);
-	cls_fle(t);
+	close_file(from);
+	close_file(to);
 
 	return (0);
 }
