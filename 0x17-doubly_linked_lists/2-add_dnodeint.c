@@ -1,14 +1,11 @@
 #include "lists.h"
-
 /**
-* dlistint_len - a Function
+* dlistint_len - function
+* @h: pointer to head node of list
 *
-* @h: Pointer To a Head Node Of a List
-* Description: a Function To Return NO. Of Elements In Linkd_List
-*
-* Return: NO. Of Elements
+* Description: function to return number of elements in a lnkd list
+* Return: Number of elements
 */
-
 size_t dlistint_len(const dlistint_t *h)
 {
 	int elements = 0;
