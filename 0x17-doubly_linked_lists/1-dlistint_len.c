@@ -1,22 +1,24 @@
-i#include "lists.h"
+#include "lists.h"
 
 /**
-* dlistint_len - Function
-*
-* @h: Pointer To Head Node Of a List
-* Description: Function To Return Number Of Elements In Lnkd List
-*
-* Return: NO. Of Elements
-*/
+ * dlistint_len - returns the number of elements in a linked dlistint_t list.
+ * @h: pointer to the head of the list
+ *
+ * Return: number of nodes
+ */
 
 size_t dlistint_len(const dlistint_t *h)
 {
-	int elements = 0;
+	int counter = 0;
+
+	if (h == NULL)
+		return (counter);
 
 	while (h != NULL)
 	{
+		counter++;
 		h = h->next;
-		elements++;
 	}
-	return (elements);
+
+	return (counter);
 }
