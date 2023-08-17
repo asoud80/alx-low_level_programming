@@ -1,32 +1,22 @@
 #include "lists.h"
 
 /**
-* add_dnodeint - a Function
+* dlistint_len - a Function
 *
-* @head: Double Pointer To First Node
+* @h: Pointer To a Head Node Of a List
+* Description: a Function To Return NO. Of Elements In Linkd_List
 *
-* @n: a New Node Data To be Added
-* Description: a Function To Add New Node To Beginning Of dbl linkd_List
-*
-* Return: address Of New Element
+* Return: NO. Of Elements
 */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+size_t dlistint_len(const dlistint_t *h)
 {
-	dlistint_t *newNode;
-	int num = n;
+	int elements = 0;
 
-	newNode = malloc(sizeof(dlistint_t));
-
-	if (newNode == NULL)
-		return (NULL);
-	newNode->n = num;
-	newNode->next = *head;
-	newNode->prev = NULL;
-
-	if (*head != NULL)
-		(*head)->prev = newNode;
-
-	*head = newNode;
-	return (newNode);
+	while (h != NULL)
+	{
+		h = h->next;
+		elements++;
+	}
+	return (elements);
 }
